@@ -1,0 +1,80 @@
+{
+  "title": "Gumtree Scraper Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchQuery": {
+      "type": "string",
+      "title": "Search Query",
+      "description": "Keywords to search for (e.g. 'ford focus', 'sofa', 'iphone')",
+      "prefill": "ford focus",
+      "editor": "textfield"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "description": "Filter by category",
+      "prefill": "cars",
+      "editor": "select",
+      "enum": ["all", "cars", "for-sale", "property", "jobs", "services", "community"],
+      "enumTitles": ["All Categories", "Cars & Vehicles", "For Sale", "Property", "Jobs", "Services", "Community"]
+    },
+    "location": {
+      "type": "string",
+      "title": "Location",
+      "description": "City or region (e.g. 'London', 'Manchester', 'Birmingham')",
+      "prefill": "London",
+      "editor": "textfield"
+    },
+    "priceMin": {
+      "type": "integer",
+      "title": "Minimum Price (£)",
+      "description": "Minimum price filter (optional)",
+      "prefill": 0,
+      "editor": "number"
+    },
+    "priceMax": {
+      "type": "integer",
+      "title": "Maximum Price (£)",
+      "description": "Maximum price filter (optional)",
+      "prefill": 50000,
+      "editor": "number"
+    },
+    "sortBy": {
+      "type": "string",
+      "title": "Sort By",
+      "description": "Result ordering",
+      "prefill": "date",
+      "editor": "select",
+      "enum": ["date", "price_asc", "price_desc", "distance"],
+      "enumTitles": ["Most Recent", "Price: Low to High", "Price: High to Low", "Distance"]
+    },
+    "includeDescription": {
+      "type": "boolean",
+      "title": "Include Full Descriptions",
+      "description": "Extract complete item descriptions (slower but more detailed)",
+      "prefill": true,
+      "editor": "checkbox"
+    },
+    "maxResults": {
+      "type": "integer",
+      "title": "Max Results",
+      "description": "Maximum number of listings to scrape",
+      "default": 50,
+      "prefill": 10,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "proxyConfiguration": {
+      "type": "object",
+      "title": "Proxy Configuration",
+      "description": "Apify proxy settings",
+      "prefill": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": ["RESIDENTIAL"]
+      },
+      "editor": "proxy"
+    }
+  },
+  "required": ["maxResults"]
+}

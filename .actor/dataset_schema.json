@@ -1,0 +1,85 @@
+{
+  "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+  "actorSpecification": 1,
+  "fields": {
+    "url": {
+      "type": "string",
+      "title": "URL",
+      "description": "Listing URL"
+    },
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "description": "Listing title"
+    },
+    "price": {
+      "type": "string",
+      "title": "Price",
+      "description": "Item price"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "Full description"
+    },
+    "location": {
+      "type": "string",
+      "title": "Location",
+      "description": "City or region"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "description": "Item category"
+    },
+    "seller": {
+      "type": "string",
+      "title": "Seller",
+      "description": "Seller name or type"
+    },
+    "datePosted": {
+      "type": "string",
+      "title": "Date Posted",
+      "description": "Posting date"
+    },
+    "imageUrl": {
+      "type": "string",
+      "title": "Image URL",
+      "description": "Main image URL"
+    },
+    "scrapedAt": {
+      "type": "string",
+      "title": "Scraped At",
+      "description": "Extraction timestamp"
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": ["title", "price", "location", "url"]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "title": {
+            "label": "Title",
+            "format": "text"
+          },
+          "price": {
+            "label": "Price",
+            "format": "text"
+          },
+          "location": {
+            "label": "Location",
+            "format": "text"
+          },
+          "url": {
+            "label": "URL",
+            "format": "link"
+          }
+        }
+      }
+    }
+  }
+}
