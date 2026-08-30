@@ -61,7 +61,7 @@
       "title": "Max Results",
       "description": "Maximum number of listings to scrape",
       "default": 50,
-      "prefill": 10,
+      "prefill": 5,
       "minimum": 1,
       "maximum": 500
     },
