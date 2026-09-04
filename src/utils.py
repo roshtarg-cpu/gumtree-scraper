@@ -18,14 +18,18 @@ def _parse_proxy(proxy_url):
 
 
 async def _fetch(url, proxy_url=None, timeout=90000):
-    """Fetch page using Camoufox with anti-detection."""
-    proxy = _parse_proxy(proxy_url) if proxy_url else None
+    """Fetch page using Playwright headless browser."""
+    from playwright.async_api import async_playwright
     
-    async with AsyncCamoufox(
-        headless=True,
-        geoip=True,
-        proxy=proxy,
-    ) as browser:
+    async with async_playwright() as p:
+        browser_args = {'headless': True}
+        
+        if proxy_url:
+            proxy = _parse_proxy(proxy_url)
+            if proxy:
+                browser_args['proxy'] = proxy
+        
+        browser = await p.chromium.launch(**browser_args)
         page = await browser.new_page()
         
         try:
@@ -41,6 +45,7 @@ async def _fetch(url, proxy_url=None, timeout=90000):
             
         finally:
             await page.close()
+            await browser.close()
 
 
 def _build_search_url(search_query=None, category='all', location=None, price_min=None, price_max=None, sort_by='date'):
