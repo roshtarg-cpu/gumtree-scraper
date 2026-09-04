@@ -1,7 +1,6 @@
 """Utility functions for Gumtree scraper."""
 import re
 from urllib.parse import urlparse, parse_qs
-from camoufox.async_api import AsyncCamoufox
 
 
 def _parse_proxy(proxy_url):
