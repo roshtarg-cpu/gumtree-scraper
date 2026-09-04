@@ -1,14 +1,15 @@
 {
-  "$schema": "https://apify.com/schemas/v1/actor.ide.json",
   "actorSpecification": 1,
   "name": "gumtree-scraper",
   "title": "Gumtree Scraper - UK Classifieds Data Extractor",
-  "description": "Extract listings from Gumtree UK marketplace - cars, furniture, electronics, jobs, and more. Works with Claude, ChatGPT & AI agents via Apify MCP.",
+  "description": "Extract listings from Gumtree UK marketplace - cars, furniture, electronics, jobs. Compatible with Claude, ChatGPT & AI agents via Apify MCP.",
   "version": "1.0",
-  "inputSchema": "./input_schema.json",
-  "outputSchema": "./output_schema.json",
-  "storages": {
-    "dataset": "./dataset_schema.json"
+  "categories": ["ECOMMERCE"],
+  "storefront": {
+    "seoTitle": "Gumtree UK Scraper - Cars, Jobs, Property",
+    "seoDescription": "Extract classified ads from Gumtree UK. JSON with prices & images. Compatible with Claude, ChatGPT & AI agents via Apify MCP."
   },
-  "dockerfile": "./Dockerfile"
+  "dockerfile": "./Dockerfile",
+  "input": "input_schema.json",
+  "outputSchema": "output_schema.json"
 }
